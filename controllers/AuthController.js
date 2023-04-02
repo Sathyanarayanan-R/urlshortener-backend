@@ -46,7 +46,7 @@ exports.verifyUserAccountLink = async (req, res) => {
 
     if (!token) return res.status(400).json({ message: "Invalid Link" });
 
-    await User.updateOne({ _id: user._id, verified: true });
+    await User.updateOne({_id: user._id}, {verified: true});
 
     await token.deleteOne();
 
