@@ -97,11 +97,7 @@ exports.getUrlCreatedDate = async (req, res) => {
       }
     });
 
-   await Url.countDocuments({
-      date: {
-      $gte: start,
-      $lte: end
-    }}, 
+   await Url.countDocuments({}, 
     function (err, count) {
       if (err){
           console.log(err)
