@@ -97,6 +97,19 @@ exports.getUrlCreatedDate = async (req, res) => {
       }
     });
 
+   await Url.countDocuments({
+      date: {
+      $gte: start,
+      $lte: end
+    }}, 
+    function (err, count) {
+      if (err){
+          console.log(err)
+      }else{
+          console.log("Count :", count)
+      }
+  });
+
     const FLDateFunc = () => {
 
       var lastDay = new Date(end.getFullYear(), end.getMonth() + 1, 0);
