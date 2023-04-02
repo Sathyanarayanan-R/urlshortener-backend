@@ -106,6 +106,16 @@ exports.getUrlCreatedDate = async (req, res) => {
       }
   });
 
+  console.log(start);
+  console.log(end);
+
+  console.log(await Url.find({
+    date: {
+      $gte: start,
+      $lte: end
+    }
+  }));
+
     const FLDateFunc = () => {
 
       var lastDay = new Date(end.getFullYear(), end.getMonth() + 1, 0);
@@ -115,6 +125,17 @@ exports.getUrlCreatedDate = async (req, res) => {
     }
 
     FLDateFunc();
+
+    console.log(start);
+    console.log(end);
+  
+    console.log(await Url.find({
+      date: {
+        $gte: start,
+        $lte: end
+      }
+    }));
+  
 
     const monthlyCount = await Url.countDocuments({
         date: {
