@@ -90,7 +90,7 @@ exports.getUrlCreatedDate = async (req, res) => {
     var end = new Date();
     end.setHours(23, 59, 59, 999);
 
-    const dailyCount = await Url.count({
+    const dailyCount = await Url.countDocuments({
       date: {
         $gte: start,
         $lte: end
@@ -107,7 +107,7 @@ exports.getUrlCreatedDate = async (req, res) => {
 
     FLDateFunc();
 
-    const monthlyCount = await Url.count({
+    const monthlyCount = await Url.countDocuments({
         date: {
         $gte: start,
         $lte: end
