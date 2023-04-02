@@ -129,6 +129,8 @@ exports.getUrlCreatedDate = async (req, res) => {
       }
     }).count();
 
+    console.log(dailyCount, monthlyCount);
+
     res.status(200).json({ dailyCount: 7, monthlyCount: 10 });
     // res.status(200).json({ dailyCount: dailyCount, monthlyCount: monthlyCount });
 
