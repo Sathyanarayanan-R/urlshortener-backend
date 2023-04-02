@@ -84,21 +84,6 @@ exports.deleteUrl = async (req, res) => {
 exports.getUrlCreatedDate = async (req, res) => {
   try {
 
-    // const query = async () => {
-    //   try {
-    //     return await Url.find({
-    //       date: {
-    //         $gte: start,
-    //         $lte: end
-    //       }
-    //     }).count()
-    //   }
-    //   catch (error) {
-    //     console.log(error);
-    //     res.status(500).json({ message: "Internal Server Error" });
-    //   }
-    // }
-
     var start = new Date();
     start.setHours(0, 0, 0, 0);
 
@@ -110,7 +95,7 @@ exports.getUrlCreatedDate = async (req, res) => {
         $gte: start,
         $lte: end
       }
-    }).count();
+    }).countDocuments();
 
     const FLDateFunc = () => {
 
@@ -127,12 +112,9 @@ exports.getUrlCreatedDate = async (req, res) => {
         $gte: start,
         $lte: end
       }
-    }).count();
+    }).countDocuments();
 
-    console.log(dailyCount, monthlyCount);
-
-    res.status(200).json({ dailyCount: 7, monthlyCount: 10 });
-    // res.status(200).json({ dailyCount: dailyCount, monthlyCount: monthlyCount });
+    res.status(200).json({ dailyCount: dailyCount, monthlyCount: monthlyCount });
 
   } catch (error) {
     console.log(error);
