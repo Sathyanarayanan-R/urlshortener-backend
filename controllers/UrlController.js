@@ -98,34 +98,9 @@ exports.getUrlCreatedDate = async (req, res) => {
       }
     });
 
-    console.log(new Date().toLocaleString('en-US', {timeZone: 'Asia/Kolkata'}));
-
-    console.log(await Url.find({}));
-
-   await Url.countDocuments({}, 
-    function (err, count) {
-      if (err){
-          console.log(err)
-      }else{
-          console.log("Count :", count)
-      }
-  });
-
-  console.log(start);
-  console.log(end);
-
-  console.log(await Url.find({
-    date: {
-      $gte: start,
-      $lte: end
-    }
-  }));
-
     const FLDateFunc = () => {
 
-      // var lastDay = new Date(end.getFullYear(), end.getMonth() + 1, 0);
       start.setDate(0);
-      // end.setDate(lastDay.getDate());
 
       end.setMonth(end.getMonth() + 1);
       end.setDate(0);
@@ -133,17 +108,6 @@ exports.getUrlCreatedDate = async (req, res) => {
     }
 
     FLDateFunc();
-
-    console.log(start);
-    console.log(end);
-  
-    console.log(await Url.find({
-      date: {
-        $gte: start,
-        $lte: end
-      }
-    }));
-  
 
     const monthlyCount = await Url.countDocuments({
         date: {
