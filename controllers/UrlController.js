@@ -97,6 +97,8 @@ exports.getUrlCreatedDate = async (req, res) => {
       }
     });
 
+    console.log(await Url.find({}));
+
    await Url.countDocuments({}, 
     function (err, count) {
       if (err){
