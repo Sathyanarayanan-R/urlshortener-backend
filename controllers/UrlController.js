@@ -85,7 +85,7 @@ exports.getUrlCreatedDate = async (req, res) => {
   try {
 
     var start = new Date();
-    start.setHours(0, 0, 0, 0);
+    start.setHours(05, 30, 0, 0);
 
     var end = new Date();
     end.setHours(23, 59, 59, 999);
