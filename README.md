@@ -1,7 +1,7 @@
 # smallurl
 
 A simple url shortener build using the MERN stack.
-Live Demo : 
+Live Demo : https://urlshortener-sj.netlify.app
 
 # Features
 
