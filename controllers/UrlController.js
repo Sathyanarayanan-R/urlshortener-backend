@@ -85,10 +85,11 @@ exports.getUrlCreatedDate = async (req, res) => {
   try {
 
     var start = new Date();
-    start.setHours(05, 30, 0, 0);
+    start.setDate(start.getDate() - 1);
+    start.setHours(18, 30, 0, 0);
 
     var end = new Date();
-    end.setHours(23, 59, 59, 999);
+    end.setHours(18, 29, 59, 999);
 
     const dailyCount = await Url.countDocuments({
       date: {
