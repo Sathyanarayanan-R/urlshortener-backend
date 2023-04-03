@@ -97,6 +97,8 @@ exports.getUrlCreatedDate = async (req, res) => {
       }
     });
 
+    console.log(new Date().toLocaleString('en-US', {timeZone: 'Asia/Kolkata'}));
+
     console.log(await Url.find({}));
 
    await Url.countDocuments({}, 
