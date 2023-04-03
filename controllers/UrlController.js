@@ -123,9 +123,12 @@ exports.getUrlCreatedDate = async (req, res) => {
 
     const FLDateFunc = () => {
 
-      var lastDay = new Date(end.getFullYear(), end.getMonth() + 1, 0);
-      start.setDate(01);
-      end.setDate(lastDay.getDate());
+      // var lastDay = new Date(end.getFullYear(), end.getMonth() + 1, 0);
+      start.setDate(0);
+      // end.setDate(lastDay.getDate());
+
+      end.setMonth(end.getMonth() + 1);
+      end.setDate(0);
 
     }
 
